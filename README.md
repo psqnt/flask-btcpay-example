@@ -25,6 +25,9 @@ https://www.youtube.com/watch?v=BIrL1lNsnJQ&list=PLCRbH-IWlcW17JxQ4mdv9DwSMJZlvU
 
 OR you can use a mynodebtc or getumbrel raspberrypi nodes, which is basically a pre-built version of ministry of nodes tutorials but works right out of the box.
 
+MyNode: https://github.com/mynodebtc/mynode
+Umbrel: https://github.com/getumbrel/umbrel
+
 I did the nodebox tutorial on my desktop and developed there, then I deployed to my mynodebtc over tor to expose it to the internet.
 
 ^ Make sure all that is setup first before starting this
@@ -131,6 +134,22 @@ if testing locally or not over tor
 ```
 flask run
 ```
+
+## Deployment
+You can deploy this anywhere you can run a website basically, you can learn some here:
+https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvii-deployment-on-linux
+
+Personally right now I am deploying mine on my raspberrypi mynodebtc.
+
+1. SSH into mynode
+2. clone your git repository to your mynode or copy the files over
+3. Follow the steps above the start up the webserver
+    a. remember the different changes that need to be made like btcpay url, btcpay client etc
+4. Turn FLASK_TOR on using environment variables and set FLASK_ENV to production
+5. run `python start_flask_server.py` and your hidden service will start up,
+
+Now you have a soveriegn and actually decentralized financial tool, congrats
+
 
 ## CSS Note
 I dress up the html a little bit using `skeleton.css`
