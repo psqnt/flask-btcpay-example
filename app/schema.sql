@@ -1,0 +1,16 @@
+CREATE TABLE if not exists post (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  title TEXT NOT NULL,
+  body TEXT NOT NULL
+);
+
+CREATE TABLE if not exists btc_pay_server_client (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  pickled_client TEXT NOT NULL
+);
+
+CREATE TABLE if not exists onion_url (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  onion TEXT NOT NULL
+);

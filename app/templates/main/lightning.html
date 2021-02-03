@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div id=about>
+    <h3>Lightning App</h3>
+    <p>
+      Click the button below to see a lightning invoice, when its paid you will automatically be shown a random post
+      ... ps. give a second if you are on Tor, it takes a few moments to load
+    </p>
+  </div>
+  <hr class=hr>
+  <div>
+    <button type="submit" onclick="show_invoice('{{invoice_id}}')">Show me!</button>
+  </div>
+  <script type='text/javascript'>
+    function show_invoice(id) {
+      window.btcpay.showInvoice(id);
+    }
+    window.btcpay.onModalReceiveMessage((event) => {
+      if (typeof event.data == "object") {
+        window.location.replace("{{redirect}}");
+      }
+    });
+  </script>
+{% endblock %}

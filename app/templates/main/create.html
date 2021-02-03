@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <strong id=title>{% block title %}create a post{% endblock %}</strong>
+{% endblock %}
+
+{% block content %}
+  <div>
+    <form method=post enctype=multipart/form-data class=add-post>
+      <div>
+        <label for="title">title</label>
+        <input style="width: 100%;" type=text name="title" id="title" value="{{ request.form['title'] }}" autocomplete=off required>
+        <label for="body">body</label>
+        <textarea style="width: 100%; height: 200px;" name="body" id="create-body" autocomplete=off">{{ request.form['body'] }}</textarea><br>
+      </div><br>
+      <input type=submit value=create>
+    </form>
+  </div>
+{% endblock %}

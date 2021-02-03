@@ -1,0 +1,29 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} junkbite.</title>
+<meta charset="utf-8">
+<meta name="description" content="imageboard and discussion">
+<meta name="author" content="psqnt">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="msvalidate.01" content="0D4B4EB23B2360B96568D8CA91B18D6E" />
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/skeleton.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<script src="{{ url_for('static', filename='js/btcpay.js') }}"></script>
+<div class=container>
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('main.create' )}}">create post</a></li>
+      <li><a href="{{ url_for('main.lightning_app' )}}">lightning app</a></li>
+    </ul>
+  </nav>
+  <section class="content">
+    <header>
+      {% block header %}{% endblock %}
+    </header>
+    {% for message in get_flashed_messages() %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+  </section>
+</div>
