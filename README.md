@@ -118,6 +118,45 @@ Be aware:
 NOTE: Do not using a trailing slash it wont work
 ```
 
+## How to use btcpay.js
+So the btcpay.js is important because it allows us (the webserver) to know when
+an action has taken place .. like getting paid.
+
+In lightning.html you can see this small script:
+```javascript
+function show_invoice(id) {
+    window.btcpay.showInvoice(id);
+}
+window.btcpay.onModalReceiveMessage((event) => {
+    if (typeof event.data == "object") {
+        window.location.replace("{{redirect}}");
+    }
+});
+```
+the function `show_invoice` calls the btcpay.js function `showInvoice`,
+which we inject into the html as a model.
+
+when the invoice is paid we will receive a call back notifying us. To capture this
+event we define a call back function. thats this:
+```
+window.btcpay.onModalReceiveMessage((event) => {
+    if (typeof event.data == "object") {
+        window.location.replace("{{redirect}}");
+    }
+```
+This is saying when we receive a message, check the event data, if the event 
+data is of type "object" then redirect.
+
+The reason I chose object here is because all the other events that occur..
+open, close, expired, etc
+
+are just a string, however when the invoice is paid its an object, if you want 
+a more robust way of checking this just print the event to console and inspect 
+the data to get some insight
+
+So thats how we can interact with lightning network and make our website do 
+stuff when an invoice is paid, theres lots more to play around with but this
+is enough to get started.
 
 ## Starting the server
 if running over tor. if you want to learn more about starting the server over tor
