@@ -148,10 +148,15 @@ Personally right now I am deploying mine on my raspberrypi mynodebtc.
 4. Turn FLASK_TOR on using environment variables and set FLASK_ENV to production
 5. run `python start_flask_server.py` and your hidden service will start up,
 
+Disclaimer: Technically you should use a WSGI server for production, I'll add how 
+to do that soon but here is a link that looks helpful:
+https://iotbytes.wordpress.com/python-flask-web-application-on-raspberry-pi-with-nginx-and-uwsgi/
+
+
 Now you have a soveriegn and actually decentralized financial tool, congrats
+Long Bitcoin
 
-
-## CSS Note
+#### CSS Note
 I dress up the html a little bit using `skeleton.css`
 https://github.com/dhg/Skeleton
 
