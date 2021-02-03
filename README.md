@@ -168,6 +168,9 @@ python start_flask_server.py
 If you are in development the server starts up twice so always use the last onion created,
 all others are overwritten
 
+Also note, if you want to keep the same tor in production then create a folder 
+called: `.tor` and use production, it will store the key to reuse the same 
+tor url there
 
 if testing locally or not over tor
 ```
